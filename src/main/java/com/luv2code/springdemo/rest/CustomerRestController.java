@@ -47,4 +47,14 @@ public class CustomerRestController {
 
          return customer;
     }
+
+    // add putMapping to update existing customer
+    @PutMapping("/customers")
+    public Customer updateCustomer(@RequestBody Customer customer){
+
+        // since customer id is set DAO will update the customer in the database
+        customerService.saveCustomer(customer);
+
+        return customer;
+    }
 }
